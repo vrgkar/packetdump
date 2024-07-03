@@ -1,5 +1,5 @@
 
-BIN = Sweetfish
+BIN = packetdump
 
 SRCDIR = src
 INCDIR = include
@@ -29,8 +29,8 @@ CXXFLAGS += -std=c++23
 $(DBIN) : $(DOBJ) | $(BINDIR) $(INCDIR)
 	$(CXX) $^ -I $(INCDIR) -o $@
 	
-# $(OBJDIR)/%.o : %.cpp | $(OBJDIR) 
-#	$(COMPILE.c) -I $(INCDIR) -c $< -o $@
+ $(OBJDIR)/%.o : %.cpp | $(OBJDIR) 
+	$(COMPILE.c) -I $(INCDIR) -c $< -o $@
 
 $(OBJDIR)/%.o : %.cpp %.d | $(OBJDIR)
 	$(COMPILE.cxx) -I $(INCDIR) -c $< -o $@
